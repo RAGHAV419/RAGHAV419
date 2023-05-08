@@ -1,5 +1,4 @@
 <h1>HI I'm raghav<h1>
-  <img src=https://livewallpapers4free.com/hacker-room-coding-desk/>
 
 <h3> 👨🏻‍💻 &nbsp;About Me </h3>
 
