@@ -1,0 +1,29 @@
+public class Check_distance_between_two_samealphabets {
+//problem number-2399
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String  s = "ababcdcd";
+		int distance[]= {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+		System.out.println(checkdistance(s,distance));
+		
+
+}
+	//asci values from a to z--97-123
+	public static boolean checkdistance(String s,int distance[]) {
+		for(int i=0;i<s.length()-1;i++) {
+			for(int j=i+1;j<s.length();j++) {
+				if(s.charAt(i)==s.charAt(j)) {
+					int actualdistance=j-i-1;
+					if(distance[s.charAt(i)-97]!=actualdistance) {
+						return false;
+					}
+			
+				}
+			}
+		
+		}
+		return true;
+
+	}
+
+}
