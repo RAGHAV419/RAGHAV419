@@ -1,0 +1,46 @@
+public class Hash_set {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashSet<Integer>set=new HashSet<>();
+		set.add(27);
+		set.add(27);
+		set.add(27);
+		set.add(27);
+		set.add(27);
+		set.add(null);
+		
+		System.out.println(set);
+		
+		TreeSet<Integer> set1=new TreeSet<>();
+		//Tree set--time complexity O(log n) for every function
+		set1.add(27);
+		set1.add(27);
+		set1.add(27);
+		set1.add(27);
+		set1.add(27);
+		//set1.add(null);---null pointer error 
+		
+		//System.out.println(set1);
+		
+		LinkedHashSet<Integer>set3=new LinkedHashSet<>();
+		//LinkedHashSet---time Complexity O(1)
+		set3.add(27);
+		set3.add(27);
+		set3.add(27);
+		set3.add(27);
+		set3.add(27);
+		set3.add(null);
+		
+		//System.out.println(set3);
+		
+/*>>Hash set prints the output in a random order irrespective of the input and null values are allowed in hash set T.C.==O(1)
+ *>>Tree set print the output in an sorted sequence according to the dictionary order and null value are not allowed in tree map because
+ *on comparison it gives null pointer error T.C.==O(log n)
+ *>>LinkedHashSet print the output in the same order as the input is no changes are done with the sequence Null pointer values are allowed in
+ *LinkedHashSet T.C.==O(1) */
+	
+
+	}
+
+}
