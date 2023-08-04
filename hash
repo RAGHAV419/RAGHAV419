@@ -1,0 +1,25 @@
+public class Common_functions_of_allkindsof_map  {
+//All the functions mentioned below are the common function used by all the maps to work
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashMap<String,Integer> map1=new HashMap<>();
+	    //put--to add a new value to the  map
+		map1.put("abishek", 27);
+		map1.put("zaid", 27);
+		map1.put("karan", 27);
+		map1.put("bhavan", 27);
+		map1.put("shikar", 27);
+		map1.put(null, 78);
+		System.out.println(map1);
+		//remove--to remove a value from map
+		map1.remove("abishek");
+		
+		System.out.println(map1);
+		//contains key--to check if a value is present or not in the map
+		System.out.println(map1.containsKey("shikar"));
+		System.out.println(map1.containsKey("abishek"));
+		//to get a value from map
+		System.out.println(map1.get("bhavan"));
+	}
+
+}
