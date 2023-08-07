@@ -1,0 +1,44 @@
+public class Grouping_anagram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String []strs= {"eat","tea","tan","ate","nat","bat"};
+		System.out.println( groupAnagrams(strs));
+
+	}
+	 public static List<List<String>> groupAnagrams(String[] strs) {
+		 HashMap<String,ArrayList<String>>map=new HashMap<>();
+		 
+		
+		 for(int i=0;i<strs.length;i++) {
+			 String st=strs[i];
+			 String k=generate_key(strs[i]);
+			 if(!map.containsKey(k)) {
+				 map.put(st,new ArrayList<>());
+			 }
+			 map.get(st).add(st);
+		 }
+		 List<List<String>> ans = new ArrayList<>();
+			for(String key : map.keySet()) {
+				ans.add(map.get(key));
+
+			}
+			return ans;
+
+	        
+	        
+	    }
+	 public static String generate_key(String g) {
+		 int freq[]=new int[26];
+		 for(int i=0;i<g.length();i++) {
+			 char ch=g.charAt(i);
+			 freq[ch-'a']=1;
+		 }
+		 StringBuilder sb=new StringBuilder();
+		 for(int i=0;i<freq.length;i++) {
+			 sb.append(freq[i]);
+		 }
+		 return sb.toString();
+	 }
+
+}
