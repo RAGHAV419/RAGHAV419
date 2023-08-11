@@ -1,0 +1,23 @@
+public class coin_permutation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s="";
+		int n=3;
+		head_tails(s,n);
+
+	}
+	public static void head_tails(String s,int n) {
+		if(n==0) {
+			System.out.println(s);
+			return;
+		}
+		
+			
+				head_tails(s+'H',n-1);
+			    head_tails(s+'T',n-1);
+			
+		
+		
+	}
+}
