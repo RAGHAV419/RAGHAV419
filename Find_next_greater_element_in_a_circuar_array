@@ -1,0 +1,49 @@
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+      	
+int brr[]=new int[nums.length];
+		
+for(int i=0;i<nums.length;i++) {
+		
+int j=i+1;
+		
+while(j<nums.length) {
+		
+if(nums[i]<nums[j]) {
+				
+	brr[i]=nums[j];
+			
+break;
+				}
+	j++;
+		}
+		
+	if(j==nums.length) {
+			
+int k=0;
+
+while(k<nums.length) {
+			
+if(nums[i]<nums[k]) {
+			
+brr[i]=nums[k];
+			
+break;
+						
+	}
+	k++;
+	}
+				
+	if(k==nums.length) {
+			
+	brr[i]=-1;
+			
+	}
+}
+			
+	}
+
+	return brr;
+			
+    }
+}
