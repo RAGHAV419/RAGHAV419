@@ -1,0 +1,40 @@
+public class Container_with_most_water {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[]= {1,2,4,3};
+		contain(arr);
+
+	}
+	public static void contain(int arr[]) {
+		int i=0;
+		int j=arr.length-1;
+		int max_area=0;
+		
+		while(i<j) {
+			int area=1;
+			if(arr[i]<=arr[j]) {
+				
+				area=arr[i]*(j-i);
+				i++;
+				
+			}
+			
+			else {
+				
+				area=arr[j]*(j-i);
+				j--;
+				
+			}
+		     
+			max_area=Math.max(max_area, area);
+			/*	if(max_area<area){
+					max_area=Math.max(max_area, area);
+			}
+			use the upper block to decrease the time complexity further as it only updates and check the max area if it is necessary */
+			
+		}
+		System.out.println("max area is "+max_area);
+	}
+
+}
