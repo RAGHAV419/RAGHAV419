@@ -1,0 +1,42 @@
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        for(int i=0;i<s.length();i++) {
+		
+			for(int j=i+1;j<=s.length();j++) {
+				
+				int x=s.length();
+			
+				int y=s.substring(i, j).length();
+				if(x%y==0) {
+			
+					boolean b=check(s.substring(i, j),s);
+				
+					if(b==true) {
+			
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	public static boolean check(String r,String s) {
+	
+		String x=r;
+	
+		int v=s.length()/r.length();
+		
+		for(int i=0;i<v-1;i++) {
+	
+			r=r.concat(x);
+	
+			if(r.equals(s)) {
+				
+				return true;
+			}
+		
+		}
+		
+		return false;
+    }
+}
