@@ -1,0 +1,48 @@
+public class Problem_no_26 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		   int nums[]= {1,1,1,2,2,3,3,3};
+		   int m=wierd(nums);
+		   System.out.println(m);
+		   
+	     for(int i=0;i<nums.length;i++) {
+	    	  System.out.print(nums[i]+" ");
+	      }
+	      
+		}
+		public static int wierd(int nums[]) {
+			
+	     ArrayList <Integer>ll=new ArrayList<>();
+	     if(nums.length==1) {
+	    	 ll.add(nums[0]);
+	     }
+	    
+			
+	   int i=0;
+	  
+	   while(i<nums.length-1) {
+		  
+		  
+		   if(nums[i]!=nums[i+1]) {
+			  
+			   ll.add(nums[i]);
+		   }
+		 
+		   if(i==nums.length-2) {
+			   
+			   ll.add(nums[i+1]);
+		   }
+		 
+		   i++;
+		 
+	   }
+	   for( int j=0;j<ll.size();j++) {
+		   nums[j]=ll.get(j);
+		  
+	   }
+	  
+	   return ll.size();
+	}
+
+}
