@@ -1,0 +1,15 @@
+/*This quetion is framed in such a way that the coder will get confused and will try to apply a complex data structure like hashmap or stack on it but this question is quite simple and it can be solved simply by a 
+single loop 
+Time Complexity--O(n)*/
+
+class Solution {
+    public boolean search(int[] nums, int target) {
+        
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==target){
+                return true;
+            }
+        }
+        return false;
+    }
+}
