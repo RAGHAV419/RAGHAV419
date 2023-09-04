@@ -1,0 +1,27 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+      HashMap<Integer,Integer>ll=new HashMap<>();
+		for(int i=0;i<nums.length;i++) {
+			if(ll.containsKey(nums[i])) {
+				ll.put(nums[i], ll.get(nums[i])+1);
+			}else {
+				ll.put(nums[i], 1);
+			}
+		}
+		int count=0;
+	
+		for(int i=0;i<nums.length;i++) {
+			count=Math.max(count, ll.get(nums[i]));
+		
+		}
+		int x=0;
+		for(int m=0;m<nums.length;m++) {
+			if(ll.get(nums[m])==count) {
+				x=nums[m];
+			}
+		}
+       
+		return x;  
+        
+    }
+}
