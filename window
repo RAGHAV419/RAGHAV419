@@ -1,0 +1,26 @@
+public class Sliding_Window {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[]= {1,2,3,11,34,1,-12};
+		int k=3;
+		sliding_window(arr,k);
+
+	}
+	public static void sliding_window(int arr[],int k) {
+		int sum=0;
+		for(int i=0;i<k;i++) {
+			sum=sum+arr[i];
+		}
+		int answer=sum;
+	
+		
+	for(int i=k;i<arr.length;i++) {
+		sum=sum+arr[i];
+		sum=sum-arr[i-k];
+		answer=Math.max(answer, sum);
+	}
+	System.out.println(answer);
+	}
+
+}
