@@ -1,0 +1,52 @@
+class Solution {
+    public void nextPermutation(int[] nums) {
+  int i=nums.length-2;
+	
+	int idx=-1;
+	
+	while(i>=0) {
+	
+		if(nums[i]<nums[i+1]) {
+		
+			idx=i;
+			
+			break;
+		}
+		
+		i--;
+	}
+	
+	
+	
+	int x=Integer.MAX_VALUE;
+	
+	int m=0;
+	
+	Arrays.sort(nums,idx+1,nums.length);
+	if(idx!=-1) {
+		int j=idx+1;
+		
+		while(j<nums.length) {
+			
+			
+			if(nums[j]-nums[idx]<x&&nums[j]-nums[idx]>0) {
+				x=nums[j]-nums[idx];
+		
+				m=j;
+				
+			}
+			
+			j++;
+		}
+			
+		int temp=nums[m];
+		
+		nums[m]=nums[idx];
+		
+		nums[idx]=temp;
+		
+	}
+	
+
+    }
+}
