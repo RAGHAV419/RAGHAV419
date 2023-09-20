@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Array_Pairs {
+	
+//	In this question we have to find the count of possible number of pairs and a pair is defined as arr[i]*arr[j]<=Max(array) 
+//	where i<j
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       Scanner sc= new Scanner (System.in);
+       int n=sc.nextInt();
+       int arr[]=new int [n];
+       for(int i=0;i<arr.length;i++) {
+    	   arr[i]=sc.nextInt();
+       }
+      
+       generate_pairs(arr);
+	}
+	public static void generate_pairs(int arr[]) {
+		int max=0;
+		for(int i=0;i<arr.length;i++) {
+			max=Math.max(max, arr[i]);
+		}
+		
+		
+		int count =0;
+	  
+	for(int i=0;i<arr.length-1;i++) {
+		for(int j=i+1;j<arr.length;j++) {
+			
+			if(arr[i]*arr[j]<=max) {
+				count++;
+			}
+		}
+		
+	}
+	
+	System.out.println("Answer is " +count);
+	}
+
+}
