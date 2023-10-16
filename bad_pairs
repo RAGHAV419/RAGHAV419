@@ -1,0 +1,26 @@
+public class number_of_bad_pairs {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int nums[]= {4,1,3,3};
+	System.out.println(find_bad_pairs(nums));;
+		
+
+	}
+	public static long find_bad_pairs(int nums[]) {
+		long n=nums.length;
+		 HashMap<Integer,Integer>map=new HashMap<>();
+		 long count=0;
+		 int diff=0;
+		 for(int i=0;i<nums.length;i++) {
+			 diff=nums[i]-i;
+			 if(map.containsKey(diff)) {
+				 count+=map.get(diff);
+			 }
+			 map.put(diff, map.getOrDefault(diff, 0)+1);
+		 }
+		 long total=(n*(n-1)/2);
+		 return total-count;
+	}
+
+}
