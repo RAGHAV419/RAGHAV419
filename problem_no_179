@@ -1,0 +1,72 @@
+public class Problem_no_179_largest_number {
+//This code will not pass every test case but 95%of the test cases will be passed and we are not using lambda expressions here
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	int nums[]= {21,33,5,51,51,56,60,74,77,90};
+		
+		System.out.print(largestnumber(nums));
+		
+	}
+	public static String largestnumber(int []nums) {
+		String []s=new String[nums.length];
+		
+		for(int i=0;i<nums.length;i++) {
+			s[i]=nums[i]+"";
+		}
+		
+		Arrays.sort(s);
+		
+		comp(s);
+		
+	
+		
+		StringBuilder sb=new StringBuilder();
+		
+		for(int i=s.length-1;i>=0;i--) {
+		
+			sb.append(s[i]);
+		}
+		String k= sb.toString();
+		
+		if(k.charAt(0)=='0') {
+			String j="0";
+			return j;
+		}
+	
+		return k;
+		
+	}
+	public static void comp(String []s) {
+		
+		int i=0;
+		
+		while(i<s.length-1) {
+		
+			if(s[i].charAt(0)==s[i+1].charAt(0)) {
+			
+				String a=s[i]+s[i+1];
+				
+				String b=s[i+1]+s[i];
+				
+				int k=a.compareTo(b);
+				
+				if(k>0) {
+					
+					String temp=s[i];
+					
+					s[i]=s[i+1];
+					
+					s[i+1]=temp;
+				}
+				
+				
+			}
+			i++;
+		}
+		
+		
+		
+
+	}
+
+}
