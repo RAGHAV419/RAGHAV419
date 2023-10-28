@@ -1,0 +1,58 @@
+public class radix_sort {
+           
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a[]= {151,259,360,91,115,706,34,858,12};
+		int n=a.length;
+		radix(a,n);
+		Arrays.sort(a);
+		for(int i=0;i<a.length;i++) {
+			System.out.print(a[i]+" ");
+		}
+		
+		
+	}
+	public static void radix(int a[],int n) {
+		int max=max(a);
+		
+		for (int place = 1; max / place > 0; place *= 10) { 
+		    countingSort(a, n, place);  
+		}  
+		
+	}
+
+	public static void countingSort(int a[],int n,int place) {
+		 int[] output = new int[n];  
+		 int[] count = new int[10];  
+		  
+		  // Calculate count of elements  
+		  for (int i = 0; i < n; i++)  
+		    count[(a[i] / place) % 10]++;  
+		      
+		  // Calculate cumulative frequency  
+		  for (int i = 1; i < 10; i++)  
+		    count[i] += count[i - 1];  
+		  
+		  // Place the elements in sorted order  
+		  for (int i = n - 1; i >= 0; i--) {  
+			  count[(a[i] / place) % 10]--;  
+		    output[count[(a[i] / place) % 10]] = a[i];  
+		  }  
+		  
+		  for (int i = 0; i < n; i++)  {
+			  a[i] = output[i];  
+		  }
+		    
+		
+
+	}
+	
+	public static int max(int a[]) {
+		int max=0;
+		for(int i=0;i<a.length;i++) {
+			if(a[i]>max) {
+				max=a[i];
+			}
+		}
+		return max;
+	}
