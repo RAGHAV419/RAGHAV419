@@ -1,0 +1,45 @@
+public static void main(String[] args) {
+	
+		String s="ababbbabba";
+		
+		int k=3;
+		
+		int flipa=max_length_string(s,k,'a');
+		
+		int flipb=max_length_string(s,k,'b');
+		
+		System.out.println(Math.max(flipa, flipb));
+	}
+	public static int max_length_string(String s,int k,char ch) {
+		int si=0;
+		
+		int ei=0;
+		
+		int ans=0;
+		
+		int flip=0;
+		
+		while(ei<s.length()) {
+		
+			if(s.charAt(ei)==ch) {
+				flip++;
+			}
+			
+			while(flip>k&&si<=ei) {
+			
+				if(s.charAt(ei)==ch) {
+					flip--;
+				}
+				
+				si++;
+			}
+			
+			ans=Math.max(ans, ei-si+1);
+			
+			ei++;
+		}
+		
+		return ans;
+	}
+
+}
