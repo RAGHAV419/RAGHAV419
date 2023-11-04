@@ -1,0 +1,28 @@
+class Solution {
+    public String reverseWords(String s) {
+          String sb="";
+	  
+		int i=0;
+		while(i<s.length()) {
+			
+			while(i<s.length()&&s.charAt(i)==' ') {
+				i++;
+			}
+			if(i>=s.length()) {
+				break;
+			}
+			int j=i;
+			while(j<s.length()&&s.charAt(j)!=' ') {
+				j++;
+			}
+			if(sb.length()==0) {
+				sb=sb+s.substring(i,j);
+			}
+			else {
+				sb=s.substring(i,j)+" "+sb;
+			}
+			i=j;
+		}
+		return sb;
+    }
+}
