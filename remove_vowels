@@ -1,0 +1,40 @@
+public class Remove_vowels_from_String {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s= "what is your name ?";
+		System.out.println(removeVowels(s));
+		
+		
+		
+		
+	}
+	 public static String removeVowels(String S) {
+			        
+			 StringBuilder sbb=new StringBuilder();
+				 
+					     List<Character>ll=new ArrayList<>();
+			     ll.add('a');
+			     ll.add('e');
+			     ll.add('i');
+			     ll.add('o');
+			     ll.add('u');
+			     ll.add('A');
+			     ll.add('E');
+			     ll.add('I');
+			     ll.add('O');
+			     ll.add('U');
+			        
+				;
+				 for(int i=0;i<S.length();i++) {
+					 if(ll.contains(S.charAt(i))) {
+						 continue;
+					 }
+					 sbb.append(S.charAt(i));
+				 }
+				
+			   return sbb.toString();
+			 
+		    }
+
+}
