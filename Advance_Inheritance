@@ -1,0 +1,19 @@
+package OOPS_Object_Oriented_Programming;
+
+public class PARENT_CLASS_WITH_SUBCLASS {
+	int stuff;
+	
+	public PARENT_CLASS_WITH_SUBCLASS(){
+		stuff=45;
+	}
+
+	public class subclass{
+		
+		int data;
+		
+		public subclass(int data) {
+			this.data=data;
+		}
+	}
+
+}
