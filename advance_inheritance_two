@@ -1,0 +1,30 @@
+package OOPS_Object_Oriented_Programming;
+
+public class CHILD_CLASS_INHERITS_PARENTS_CLASSES_SUBCLASS extends PARENT_CLASS_WITH_SUBCLASS {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PARENT_CLASS_WITH_SUBCLASS p=new PARENT_CLASS_WITH_SUBCLASS();
+		p.stuff=34;
+		System.out.println(p.stuff);
+		//This is how we simply access the data members of a class which is inherited
+		
+		PARENT_CLASS_WITH_SUBCLASS.subclass s=p.new subclass(23);
+		
+		PARENT_CLASS_WITH_SUBCLASS.subclass s1=p.new subclass(23);
+	
+// here we have created one more object which contains a new parents subclass associated with the same instance of parent class which we associated
+		s.data=29;
+		System.out.println(s.data);
+		
+		//so this is how a sub-class of parent class will be accessed inside the child class
+		//parent_name . parent_subclass_name=instance of parent . new parent_subclass_name
+		
+		//Note - Here p.new subclass means that this subclass is associated with that instance of parent class which we made above
+        //NOTE 2-->As you see, to create an instance of object of inner class you had to specify to which exactly object of enclosing class 
+		//you want it to belong (with the P.new in your example).
+	}
+	
+	
+
+}
