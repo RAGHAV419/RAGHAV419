@@ -1,0 +1,183 @@
+package LINKED_LIST;
+
+public class LINKED_LIST {
+
+	
+	public  class node{
+		int data;
+		node next;
+	 
+		public node(int data) {
+			this.data=data;
+		}
+	}
+	private node head;
+	private int size;
+	private node tail;
+	
+//-----------------------------------------------------------------------------------------------------------------------------------------------\\
+	
+	
+	public void addfirst(int item) {
+		node nn=new node(item);
+		
+		if(this.size==0) {
+			this.head=nn;
+			this.tail=nn;
+			this.size++;
+		}
+		else {
+			nn.next=this.head;
+			this.head=nn;
+			this.size++;
+		}
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\
+	
+	public void addlast(int item) {
+		
+		
+		if(this.size==0) {
+			addfirst(item);
+		}
+		else {
+			node nn=new node(item);
+			this.tail.next=nn;
+			this.tail=nn;
+			
+			this.size++;
+		}
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\	
+	
+	
+	public int getfirst() throws Exception  {
+		if(this.head==null) {
+             throw new Exception("its not possible you fool");
+
+		}
+		return this.head.data;
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\	
+	
+	
+	public int getlast() throws Exception  {
+		if(this.head==null) {
+             throw new Exception("its not possible you fool");
+
+		}
+		return this.tail.data;
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\	
+	
+	
+	
+	public void display() {
+		node temp=this.head;
+		while(temp!=null) {
+			System.out.print(temp.data+"---->");
+			temp=temp.next;
+		}
+		System.out.println(".");
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\	
+	
+	
+	
+	public int getatindex(int k)throws Exception {
+		return getnode(k).data;
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\	
+	
+	 
+	
+	private node getnode(int k)throws Exception {
+		node temp=head;
+		if(k<0||k>=size) {
+			throw new Exception("are u like crazy or something ");
+		}
+		
+		for(int i=1;i<=k;i++) {
+			temp=temp.next;
+		}
+		return temp;
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\
+	
+	
+	public int removefirst() {
+		node temp=this.head;
+		this.head=this.head.next;
+		temp.next=null;
+		this.size--;
+		return temp.data;
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\
+	
+	
+	public int removelast() throws Exception {
+		if(head==null){
+			throw new Exception("nope");
+		}
+		if(this.size==1) {
+			return removefirst();
+		}
+		node temp=getnode(this.size-2);
+		int removedata=this.tail.data;
+		this.tail=temp;
+		this.tail.next=null;
+		this.size--;
+		return removedata;
+	}
+	
+//----------------------------------------------------------------------------------------------------------------------------------------------\\
+ 
+	
+	public int removeatindex(int k)throws Exception {
+		if(k<0||k>=size) {
+			throw new Exception("ooh good how can u do this");
+		}
+		else if(k==0) {
+			return removefirst();
+		}
+		else if(k==this.size-1) {
+			return removelast();
+		}
+		else {
+			node kth=getnode(k);
+			node kth_1=getnode(k-1);
+			kth_1.next=kth.next;
+			kth.next=null;
+			this.size--;
+			return kth.data;
+		}
+		
+	}
+//----------------------------------------------------------------------------------------------------------------------------------------------\\
+	 
+	
+	
+	public void addatindex(int k,int item)throws Exception {
+		if(k<0||k>=size) {
+			throw new Exception("ooh good how can u do this");
+		}
+		else if(k==0) {
+			addfirst(item);
+		}
+		else if(k==this.size-1) {
+			addlast(item);
+		}
+		else {
+			node nn=new node(item);
+			node k_1th=getnode(k-1);
+			nn.next=k_1th.next;
+			k_1th.next=nn;
+			this.size++;
+		}
+		
+	}
+	
+	
+
+
+}
