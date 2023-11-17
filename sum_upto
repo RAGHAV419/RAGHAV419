@@ -1,0 +1,45 @@
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int nums[]= {0,0,0,0};  
+		System.out.println(threeSum(nums));
+		
+		    
+		                                                                                    
+		
+	}
+	public static List<List<Integer>> threeSum(int[] nums) {
+		Arrays.sort(nums);
+       
+        Set<List<Integer>>LL=new HashSet<>();
+        
+        for(int i=0;i<nums.length-2;i++) {
+        	if(i==0||nums[i]!=nums[i-1]) {
+        		sum(i+1,nums[i],nums,LL);
+        	}
+        }
+        
+      return new ArrayList<>(LL);
+		
+	}
+	
+	public static void sum(int a,int b,int []nums,Set<List<Integer>>LL) {
+		
+		for(int i=a;i<nums.length-1;i++) {
+			
+			for(int j=i+1;j<nums.length;j++) {
+				
+				if(nums[i]+nums[j]+b==0) {
+					List<Integer>ll=new ArrayList<>();
+					ll.add(nums[i]);
+					ll.add(nums[j]);
+					ll.add(b);
+					if(ll.size()==3) {
+						LL.add(Arrays.asList(nums[i],nums[j],b));
+					}
+					
+				}
+			}
+		}
+
+	}
