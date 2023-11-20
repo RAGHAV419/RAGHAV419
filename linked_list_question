@@ -1,0 +1,48 @@
+package LINKED_LIST;
+
+import LINKED_LIST.LINKEDLIST.node;//-- WE CAN EITHER USE THIS OR INHERITANCE USING EXTEND BOTH WILL WORK HERE . WE HAVE USED IMPORT HERE
+
+public class problem_no876_another_version  {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		LINKEDLIST one=new LINKEDLIST();
+        one.addfirst(5);
+        one.addfirst(4);
+        one.addfirst(3);
+        one.addfirst(2);
+        one.addfirst(1);
+        
+        LINKEDLIST two=new LINKEDLIST();
+        two.addfirst(6);
+        two.addfirst(5);
+        two.addfirst(4);
+        two.addfirst(3);
+        two.addfirst(2);
+        two.addfirst(1);
+      
+       one.display();
+       display_mid_index(one);//this linked list consists of odd pair so definitely there is only one mid element present here
+      
+       System.out.println();
+       System.out.println();
+      
+       two.display();
+       display_mid_index(two);//this linked list which consists of even pairs but here we have to choose the first one from the pair example-- 1,2,3,4,5,6
+                              //so here 3 and 4 are in mid so we have to print 3 only
+        
+	}
+	public static void display_mid_index(LINKEDLIST X) {
+		node fast=X.head;
+		node slow=X.head;
+		 
+		while(fast.next!=null&&fast.next.next!=null) {
+			fast=fast.next.next;
+			slow=slow.next;
+		}
+		System.out.println(slow.data);
+
+	}
+
+}
