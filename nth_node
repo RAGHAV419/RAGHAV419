@@ -1,0 +1,62 @@
+package LINKED_LIST;
+
+import LINKED_LIST.LINKEDLIST.node;
+
+public class Remove_nth_node_from_last {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LINKEDLIST m=new LINKEDLIST ();
+		
+	
+		m.addfirst(2);
+		m.addfirst(1);
+		
+		m.display();
+		
+		last(m,1);
+		
+		m.display();
+		
+	
+
+	}
+	public static node last(LINKEDLIST m,int n) {
+		if(m.head==null||m.head.next==null) {
+		m.head=null;
+		return m.head;
+	}
+	
+	node dummy=m.new node(-1);
+	dummy.next=m.head;
+	
+	
+	node first=dummy;
+	
+	node second=dummy;
+	
+	
+	for(int i=0;i<n;i++) {
+	  second=second.next;
+	}
+	
+	
+	while(second.next!=null) {
+	  second=second.next;
+	  first=first.next;
+	
+	}
+	
+	first.next=first.next.next;
+	 m.head=dummy.next;
+	
+	return m.head;
+	 
+	 
+
+		
+	}
+
+}
+
+
