@@ -1,0 +1,45 @@
+package LINKED_LIST;
+
+import LINKED_LIST.LINKEDLIST.node;
+//In this question we have to remove the middle index element from the list and if the number of elements are even then we have to remove the 
+//second element from the pair of middle elements
+public class leetcode_problem_2095 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LINKEDLIST ll=new LINKEDLIST();
+		ll.addfirst(4);
+		ll.addfirst(3);
+		ll.addfirst(2);
+		ll.addfirst(1);
+		
+		ll.display();
+		mid(ll);
+		ll.display();
+		
+		
+
+	}
+	public static node  mid(LINKEDLIST ll) {
+		if(ll.head==null||ll.head.next==null) {
+			ll.head=null;
+			return ll.head;
+			
+		}
+		node nn=ll.new node(-1);
+		nn.next=ll.head;
+		
+		node first=nn;
+		node second=nn;
+		
+		while(second.next!=null&&second.next.next!=null) {
+			second=second.next.next;
+			first=first.next;
+		}
+		System.out.println(first.data);
+		first.next=first.next.next;
+		return ll.head;
+		
+	}
+
+}
