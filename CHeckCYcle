@@ -1,0 +1,37 @@
+public class HAS_CYCLE_Leetocde141 {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		CREATE_cycle ll=new CREATE_cycle();
+		ll.addlast(10);
+		ll.addlast(20);
+		ll.addlast(30);
+		ll.addlast(40);
+		ll.create_cycle(ll, 2);
+		System.out.println(check_cycle(ll));
+		
+		
+	}
+	public static boolean check_cycle(CREATE_cycle ll) {
+		
+		node temp=ll.new node(0);
+		temp.next=ll.head;
+		
+		node slow=temp;
+		node fast=temp;
+		
+		while(fast!=null&&fast.next!=null) {
+			slow=slow.next;
+			fast=fast.next.next;
+			if(fast==slow) {
+				return true;
+			}
+		}
+		System.out.println(slow.data);
+		System.out.println(fast.data);
+		
+		return false;
+	}
+
+}
