@@ -1,0 +1,37 @@
+class Solution {
+     static String[]key= {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    public List<String> letterCombinations(String digits) {
+     List <String> list12=new ArrayList<>();
+        if(digits.equals("")){
+             
+             return list12;
+        }
+        
+       String ans="";
+       
+        List <String> list13=new ArrayList<>();
+        
+       list13=Calculate(digits,ans,list12);
+       return list13;
+
+       
+
+    }
+    public static List<String> Calculate(String ques,String ans,List<String> list)
+    {
+         if(ques.length()==0)
+        {
+           list.add(ans);
+           return list;
+          
+        }
+        char ch=ques.charAt(0);
+        String res1=key[ch-50];
+        for(int i=0;i<res1.length();i++)
+        {
+            Calculate(ques.substring(1),ans+res1.charAt(i),list);
+
+        }
+     return list;
+	}
+}
